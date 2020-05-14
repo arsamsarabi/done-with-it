@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { StyleSheet, FlatList, View } from 'react-native'
 
-import { ListItem, Screen } from '../components'
+import { ListItem, Screen, ListItemSeparator } from '../components'
 
 const messages = [
   {
@@ -39,6 +39,7 @@ export const MessagesScreen = () => {
         renderItem={({ item }) => (
           <ListItem title={item.title} subTitle={item.description} image={item.image} />
         )}
+        ItemSeparatorComponent={ListItemSeparator}
       />
     </Screen>
   )
