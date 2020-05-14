@@ -37,7 +37,12 @@ export const MessagesScreen = () => {
         data={messages}
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
-          <ListItem title={item.title} subTitle={item.description} image={item.image} />
+          <ListItem
+            title={item.title}
+            subTitle={item.description}
+            image={item.image}
+            onPress={() => console.log('Message Selected', item)}
+          />
         )}
         ItemSeparatorComponent={ListItemSeparator}
       />
