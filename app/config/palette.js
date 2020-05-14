@@ -7,6 +7,7 @@ const colors = {
   darkGrey: '#2c3e50',
   green: '#4ECDC4',
   red: '#fc5c65',
+  danger: '#ff5252',
 }
 
 export const Palette = {
@@ -18,4 +19,5 @@ export const Palette = {
   darkGrey: colors.darkGrey,
   grey: colors.grey,
   lightGrey: colors.lightGrey,
+  danger: colors.danger,
 }
