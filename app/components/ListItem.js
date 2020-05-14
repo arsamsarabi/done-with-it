@@ -20,13 +20,23 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     marginBottom: 16,
+    flexDirection: 'row',
+    paddingHorizontal: 12,
   },
   image: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 72,
+    height: 72,
+    borderRadius: 36,
   },
-  info: {},
-  title: {},
-  subTitle: {},
+  info: {
+    marginLeft: 12,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '500',
+  },
+  subTitle: {
+    fontSize: 16,
+    color: Palette.grey,
+  },
 })

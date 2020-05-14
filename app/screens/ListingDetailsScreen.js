@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 
-import { AppText } from '../components'
+import { AppText, ListItem } from '../components'
 import { Palette } from '../config'
 
 export const ListingDetailsScreen = () => {
@@ -15,6 +15,13 @@ export const ListingDetailsScreen = () => {
       <View style={styles.info}>
         <AppText style={styles.title}>Amazing Gameboy</AppText>
         <AppText style={styles.price}>£69.99</AppText>
+      </View>
+      <View style={styles.user}>
+        <ListItem
+          image={require('../assets/images/dummy/arsam.jpeg')}
+          title="Arsam Sarabi"
+          subTitle="7 Listings"
+        />
       </View>
     </View>
   )
@@ -41,5 +48,8 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  user: {
+    marginVertical: 40,
   },
 })
