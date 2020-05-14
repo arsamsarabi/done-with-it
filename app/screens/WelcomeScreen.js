@@ -5,10 +5,10 @@ import { Palette } from '../utils'
 
 export const WelcomeScreen = () => {
   return (
-    <ImageBackground style={styles.container} source={require('../../assets/images/bedroom.jpg')}>
+    <ImageBackground style={styles.container} source={require('../assets/images/bedroom.jpg')}>
       <View style={styles.logoContainer}>
         <Image
-          source={require('../../assets/icon.png')}
+          source={require('../assets/images/logo.png')}
           blurRadius={0}
           fadeDuration={500}
           style={styles.logo}

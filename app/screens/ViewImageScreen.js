@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  ImageBackground,
-  StatusBar,
-  Platform,
-} from 'react-native'
+import { StyleSheet, View, SafeAreaView, ImageBackground, StatusBar, Platform } from 'react-native'
 
 import { Palette } from '../utils'
 
@@ -18,10 +10,7 @@ export const ViewImageScreen = () => {
         <View style={styles.placeholderRed} />
         <View style={styles.placeholderGreen} />
       </View>
-      <ImageBackground
-        style={styles.productImage}
-        source={require('../../assets/images/plant.jpg')}
-      />
+      <ImageBackground style={styles.productImage} source={require('../assets/images/plant.jpg')} />
     </SafeAreaView>
   )
 }
