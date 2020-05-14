@@ -1,15 +1,7 @@
 import React from 'react'
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  Image,
-  TouchableWithoutFeedback,
-  Alert,
-  Platform,
-  StatusBar,
-  Dimensions,
-} from 'react-native'
+import { StyleSheet, Text, SafeAreaView, Image, Platform, StatusBar } from 'react-native'
+
+import { Palette } from './src/utils'
 
 export default App = () => {
   return (
@@ -29,7 +21,7 @@ export default App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: Palette.white,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 0,
     alignItems: 'center',
     justifyContent: 'center',
