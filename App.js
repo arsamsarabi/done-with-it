@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { WelcomeScreen } from './src/screens'
+import { WelcomeScreen, ViewImageScreen } from './src/screens'
 
 export default App = () => {
-  return <WelcomeScreen />
+  return <ViewImageScreen />
 }
