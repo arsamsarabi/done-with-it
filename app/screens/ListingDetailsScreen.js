@@ -18,7 +18,7 @@ export const ListingDetailsScreen = () => {
       </View>
       <View style={styles.user}>
         <ListItem
-          image={require('../assets/images/dummy/thispersondoesnotexist.jpg')}
+          image={require('../assets/images/dummy/user4.jpg')}
           title="Isabelle Ringing"
           subTitle="7 Listings"
         />
