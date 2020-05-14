@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { WelcomeScreen, MyAccount } from './app/screens'
+import { WelcomeScreen, ListingsScreen } from './app/screens'
 import { Palette } from './app/config'
 
 export default App = () => {
   return (
     <View style={styles.container}>
-      <MyAccount />
+      <ListingsScreen />
     </View>
   )
 }
