@@ -1,19 +1,37 @@
 import React from 'react'
 import { View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { AppText } from './AppText'
 import { Palette } from '../config'
 
-export const ListItem = ({ image, title, subTitle, onPress, rightActions, style }) => {
+export const IconListItem = ({
+  icon,
+  iconColor,
+  title,
+  subTitle,
+  onPress,
+  rightActions,
+  style,
+}) => {
   return (
     <Swipeable renderRightActions={rightActions}>
-      <TouchableHighlight underlayColor={Palette.lightGrey} onPress={onPress}>
-        <View style={[styles.container, style]}>
-          <Image resizeMethod="resize" source={image} style={styles.image} />
+      <TouchableHighlight underlayColor={Palette.lightGrey} onPress={onPress} style={style}>
+        <View style={styles.container}>
+          <View
+            style={[
+              styles.icon,
+              {
+                backgroundColor: iconColor,
+              },
+            ]}
+          >
+            <MaterialCommunityIcons name={icon} size={20} color={Palette.snow} />
+          </View>
           <View style={styles.info}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle ? <AppText style={styles.subTitle}>{subTitle}</AppText> : null}
           </View>
         </View>
       </TouchableHighlight>
@@ -28,10 +46,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
   },
-  image: {
-    width: 72,
-    height: 72,
-    borderRadius: 36,
+  icon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   info: {
     marginLeft: 12,

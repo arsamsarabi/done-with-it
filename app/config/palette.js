@@ -8,16 +8,19 @@ const colors = {
   green: '#4ECDC4',
   red: '#fc5c65',
   danger: '#ff5252',
+  yellow: '#ffe66d',
 }
 
 export const Palette = {
-  snow: colors.snow,
-  white: colors.white,
-  black: colors.black,
   primary: colors.green,
   secondary: colors.red,
-  darkGrey: colors.darkGrey,
-  grey: colors.grey,
-  lightGrey: colors.lightGrey,
   danger: colors.danger,
+  alert: colors.yellow,
+
+  black: colors.black,
+  white: colors.white,
+  snow: colors.snow,
+  lightGrey: colors.lightGrey,
+  grey: colors.grey,
+  darkGrey: colors.darkGrey,
 }
