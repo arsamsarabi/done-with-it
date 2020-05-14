@@ -32,9 +32,16 @@ const data = [
 
 export const MessagesScreen = () => {
   const [messages, setMessage] = useState(data)
+  const [refreshing, setrefreshing] = useState(false)
+
   const handleDelete = (messageId) => {
     setMessage(messages.filter((message) => message.id !== messageId))
   }
+
+  const handleRefresh = () => {
+    setMessage(data)
+  }
+
   return (
     <Screen style={styles.container}>
       <FlatList
@@ -50,6 +57,8 @@ export const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
       />
     </Screen>
   )
