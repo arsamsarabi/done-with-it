@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, ImageBackground, Image, StatusBar, Platform } from 'react-native'
 
-import { Palette } from '../utils'
+import { Palette } from '../config'
 
 export const WelcomeScreen = () => {
   return (

@@ -1,17 +1,23 @@
 import React from 'react'
-import { StyleSheet, View, SafeAreaView, ImageBackground, StatusBar, Platform } from 'react-native'
+import { StyleSheet, View, Image, StatusBar, Platform } from 'react-native'
 
-import { Palette } from '../utils'
+import { Palette } from '../config'
 
 export const ViewImageScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.actionBar}>
-        <View style={styles.placeholderRed} />
-        <View style={styles.placeholderGreen} />
+        <View style={[styles.button, styles.deleteIcon]} />
+        <View style={[styles.button, styles.closeIcon]} />
       </View>
-      <ImageBackground style={styles.productImage} source={require('../assets/images/plant.jpg')} />
-    </SafeAreaView>
+      <View style={styles.imageContainer}>
+        <Image
+          resizeMode="contain"
+          style={styles.productImage}
+          source={require('../assets/images/plant.jpg')}
+        />
+      </View>
+    </View>
   )
 }
 
@@ -19,29 +25,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Palette.black,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 10,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 16 : 48,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
   actionBar: {
-    height: 100,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 32,
+    marginBottom: 24,
   },
-  placeholderGreen: {
+  button: {
     width: 50,
     height: 50,
+  },
+  closeIcon: {
     backgroundColor: Palette.green,
   },
-  placeholderRed: {
-    width: 50,
-    height: 50,
+  deleteIcon: {
     backgroundColor: Palette.red,
+  },
+  imageContainer: {
+    flex: 1,
+    overflow: 'hidden',
+    width: '100%',
   },
   productImage: {
     width: '100%',
-    height: '80%',
+    height: '100%',
   },
 })
