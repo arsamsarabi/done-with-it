@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Image, StatusBar, Platform } from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { Palette } from '../config'
 
@@ -7,16 +8,14 @@ export const ViewImageScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.actionBar}>
-        <View style={[styles.button, styles.deleteIcon]} />
-        <View style={[styles.button, styles.closeIcon]} />
+        <MaterialCommunityIcons name="trash-can-outline" color={Palette.snow} size={24} />
+        <MaterialCommunityIcons name="close" color={Palette.snow} size={24} />
       </View>
-      <View style={styles.imageContainer}>
-        <Image
-          resizeMode="contain"
-          style={styles.productImage}
-          source={require('../assets/images/plant.jpg')}
-        />
-      </View>
+      <Image
+        resizeMode="contain"
+        style={styles.productImage}
+        source={require('../assets/images/plant.jpg')}
+      />
     </View>
   )
 }
@@ -24,6 +23,7 @@ export const ViewImageScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: Palette.black,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 16 : 48,
     justifyContent: 'flex-start',
@@ -34,22 +34,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 32,
-    marginBottom: 24,
-  },
-  button: {
-    width: 50,
-    height: 50,
-  },
-  closeIcon: {
-    backgroundColor: Palette.primary,
-  },
-  deleteIcon: {
-    backgroundColor: Palette.secondary,
-  },
-  imageContainer: {
-    flex: 1,
-    overflow: 'hidden',
-    width: '100%',
   },
   productImage: {
     width: '100%',
