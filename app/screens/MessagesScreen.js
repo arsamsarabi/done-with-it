@@ -1,9 +1,7 @@
 import React from 'react'
-import { StyleSheet, FlatList, SafeAreaView } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 
-import Constants from 'expo-constants'
-
-import { ListItem } from '../components'
+import { ListItem, Screen } from '../components'
 
 const messages = [
   {
@@ -34,7 +32,7 @@ const messages = [
 
 export const MessagesScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <Screen style={styles.container}>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -42,14 +40,10 @@ export const MessagesScreen = () => {
           <ListItem title={item.title} subTitle={item.description} image={item.image} />
         )}
       />
-    </SafeAreaView>
+    </Screen>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    paddingTop: Constants.statusBarHeight,
-  },
+  container: {},
 })
