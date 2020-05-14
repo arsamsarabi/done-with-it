@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textTransform: 'uppercase',
-    color: Palette.white,
+    color: Palette.snow,
     fontWeight: 'bold',
     fontSize: 16,
   },
