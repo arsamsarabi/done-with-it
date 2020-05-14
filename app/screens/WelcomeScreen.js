@@ -5,7 +5,7 @@ import { Palette } from '../utils'
 
 export const WelcomeScreen = () => {
   return (
-    <ImageBackground style={styles.container} source={require('../assets/images/bedroom.jpg')}>
+    <ImageBackground style={styles.background} source={require('../assets/images/bedroom.jpg')}>
       <View style={styles.logoContainer}>
         <Image
           source={require('../assets/images/logo.png')}
@@ -15,35 +15,34 @@ export const WelcomeScreen = () => {
         />
         <Text>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.placeholderRed} />
-      <View style={styles.placeholderGreen} />
+      <View style={[styles.button, styles.loginButton]} />
+      <View style={[styles.button, styles.registerButton]} />
     </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    backgroundColor: Palette.white,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 35,
-    alignItems: 'center',
     justifyContent: 'flex-end',
   },
   logoContainer: {
     flex: 1,
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 35 : 65,
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
   },
-  placeholderGreen: {
+  button: {
     width: '100%',
-    height: 75,
+    height: 70,
+  },
+  loginButton: {
     backgroundColor: Palette.green,
   },
-  placeholderRed: {
-    width: '100%',
-    height: 75,
+  registerButton: {
     backgroundColor: Palette.red,
   },
 })
