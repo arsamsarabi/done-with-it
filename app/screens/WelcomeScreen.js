@@ -1,11 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, Image, StatusBar, Platform } from 'react-native'
+import { StyleSheet, View, ImageBackground, Image, StatusBar, Platform } from 'react-native'
 
-import { Palette } from '../config'
+import { AppButton, AppText } from '../components'
 
 export const WelcomeScreen = () => {
   return (
-    <ImageBackground style={styles.background} source={require('../assets/images/bedroom.jpg')}>
+    <ImageBackground
+      style={styles.background}
+      source={require('../assets/images/bedroom.jpg')}
+      blurRadius={5}
+    >
       <View style={styles.logoContainer}>
         <Image
           source={require('../assets/images/logo.png')}
@@ -13,10 +17,12 @@ export const WelcomeScreen = () => {
           fadeDuration={500}
           style={styles.logo}
         />
-        <Text>Sell What You Don't Need</Text>
+        <AppText style={styles.tagline}>Sell What You Don't Need</AppText>
       </View>
-      <View style={[styles.button, styles.loginButton]} />
-      <View style={[styles.button, styles.registerButton]} />
+      <View style={styles.actions}>
+        <AppButton title="Login" />
+        <AppButton title="Register" color="secondary" />
+      </View>
     </ImageBackground>
   )
 }
@@ -25,6 +31,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: 'flex-end',
+    width: '100%',
   },
   logoContainer: {
     flex: 1,
@@ -35,14 +42,12 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
-  button: {
-    width: '100%',
-    height: 70,
+  tagline: {
+    marginTop: 8,
+    fontSize: 24,
+    fontWeight: 'bold',
   },
-  loginButton: {
-    backgroundColor: Palette.green,
-  },
-  registerButton: {
-    backgroundColor: Palette.red,
+  actions: {
+    padding: 24,
   },
 })

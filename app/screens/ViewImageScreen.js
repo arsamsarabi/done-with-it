@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
     height: 50,
   },
   closeIcon: {
-    backgroundColor: Palette.green,
+    backgroundColor: Palette.primary,
   },
   deleteIcon: {
-    backgroundColor: Palette.red,
+    backgroundColor: Palette.secondary,
   },
   imageContainer: {
     flex: 1,
