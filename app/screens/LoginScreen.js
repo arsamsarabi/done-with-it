@@ -1,9 +1,8 @@
 import React from 'react'
 import { StyleSheet, Image } from 'react-native'
-import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-import { Screen, AppButton, AppFormField, SubmitButton } from '../components'
+import { Screen, AppFormField, SubmitButton, AppForm } from '../components'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -15,7 +14,7 @@ export const LoginScreen = () => {
     <Screen>
       <Image source={require('../assets/images/logo.png')} style={styles.logo} />
 
-      <Formik
+      <AppForm
         initialValues={{
           email: '',
           password: '',
@@ -23,32 +22,28 @@ export const LoginScreen = () => {
         onSubmit={(values) => console.log('form submitted', values)}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              name="email"
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="email"
-              placeholder="Email"
-              keyboardType="email-address"
-              textContentType="emailAddress"
-              autoFocus
-            />
-            <AppFormField
-              name="password"
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="key"
-              placeholder="Password"
-              textContentType="password"
-              secureTextEntry
-            />
+        <AppFormField
+          name="email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          placeholder="Email"
+          keyboardType="email-address"
+          textContentType="emailAddress"
+          autoFocus
+        />
+        <AppFormField
+          name="password"
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="key"
+          placeholder="Password"
+          textContentType="password"
+          secureTextEntry
+        />
 
-            <SubmitButton style={styles.loginButton} title="Login" />
-          </>
-        )}
-      </Formik>
+        <SubmitButton style={styles.loginButton} title="Login" />
+      </AppForm>
     </Screen>
   )
 }
