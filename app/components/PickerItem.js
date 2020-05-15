@@ -6,11 +6,13 @@ import { AppText } from './AppText'
 export const PickerItem = ({ label, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText>{label}</AppText>
+      <AppText style={styles.text}>{label}</AppText>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  text: {
+    padding: 16,
+  },
 })

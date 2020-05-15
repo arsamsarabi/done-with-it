@@ -5,15 +5,23 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { palette, defaultStyles } from '../config'
 import { AppText } from './AppText'
 import { Screen } from './Screen'
+import { PickerItem } from './PickerItem'
 
 export const AppPicker = ({ icon, items, placeholder }) => {
   const [modalVisibility, setModalVisibility] = useState(false)
+  const [value, setValue] = useState(null)
+
+  const handleItemPress = (item) => {
+    setValue(item.label)
+    setModalVisibility(false)
+  }
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisibility(true)}>
         <View style={styles.container}>
           {icon && <MaterialCommunityIcons name={icon} size={24} color={palette.text} />}
-          <AppText style={styles.placeholder}>{placeholder}</AppText>
+          <AppText style={styles.placeholder}>{value || placeholder}</AppText>
           <MaterialCommunityIcons name="chevron-down" size={20} color={palette.text} />
         </View>
       </TouchableWithoutFeedback>
@@ -23,7 +31,9 @@ export const AppPicker = ({ icon, items, placeholder }) => {
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
-            renderItem={({ item }) => <AppText>{item.label}</AppText>}
+            renderItem={({ item }) => (
+              <PickerItem label={item.label} onPress={() => handleItemPress(item)} />
+            )}
           />
         </Screen>
       </Modal>
