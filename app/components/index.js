@@ -1,4 +1,5 @@
 export { AppButton } from './AppButton'
+export { AppFormField } from './AppFormField'
 export { AppPicker } from './AppPicker'
 export { AppSwitch } from './AppSwitch'
 export { AppText } from './AppText'

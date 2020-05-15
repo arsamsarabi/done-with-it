@@ -3,8 +3,7 @@ import { StyleSheet, Image } from 'react-native'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-import { Screen, AppTextInput, AppButton, AppText, ErrorMessage } from '../components'
-import { palette } from '../config'
+import { Screen, AppButton, AppFormField } from '../components'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -24,9 +23,10 @@ export const LoginScreen = () => {
         onSubmit={(values) => console.log('form submitted', values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+        {({ handleSubmit }) => (
           <>
-            <AppTextInput
+            <AppFormField
+              name="email"
               autoCapitalize="none"
               autoCorrect={false}
               icon="email"
@@ -34,21 +34,17 @@ export const LoginScreen = () => {
               keyboardType="email-address"
               textContentType="emailAddress"
               autoFocus
-              onChangeText={handleChange('email')}
-              onBlur={() => setFieldTouched('email')}
             />
-            <ErrorMessage error={errors.email} visibility={touched.email} />
-            <AppTextInput
+            <AppFormField
+              name="password"
               autoCapitalize="none"
               autoCorrect={false}
               icon="key"
               placeholder="Password"
               textContentType="password"
               secureTextEntry
-              onChangeText={handleChange('password')}
-              onBlur={() => setFieldTouched('password')}
             />
-            <ErrorMessage error={errors.password} visibility={touched.password} />
+
             <AppButton style={styles.loginButton} title="Login" onPress={handleSubmit} />
           </>
         )}
