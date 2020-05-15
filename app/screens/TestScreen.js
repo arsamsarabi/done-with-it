@@ -1,16 +1,13 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { View, StyleSheet, TextInput } from 'react-native'
 
-import { Card } from '../components'
+import { AppTextInput } from '../components'
 
 export const TestScreen = () => {
+  const [firstName, setFirstName] = useState('')
   return (
     <View style={styles.container}>
-      <Card
-        image={require('../assets/images/dummy/psp.jpg')}
-        title="Retro Playstation Portable"
-        subTitle="£99.99"
-      />
+      <AppTextInput icon="email" placeholder="Username" clearButtonMode="while-editing" />
     </View>
   )
 }
@@ -19,8 +16,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingHorizontal: 12,
+    paddingVertical: 64,
   },
 })
