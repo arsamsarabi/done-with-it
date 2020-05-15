@@ -8,7 +8,11 @@ export const AppTextInput = ({ icon, ...rest }) => {
   return (
     <View style={styles.container}>
       {icon && <MaterialCommunityIcons name={icon} size={24} color={palette.text} />}
-      <TextInput style={[styles.textInput, defaultStyles.text]} {...rest} />
+      <TextInput
+        placeholderTextColor={palette.grey}
+        style={[styles.textInput, defaultStyles.text]}
+        {...rest}
+      />
     </View>
   )
 }
