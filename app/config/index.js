@@ -1,2 +1,2 @@
 export { palette } from './palette'
-export { defaultStyles } from './defaultStyles'
+export { defaultStyles } from './styles'

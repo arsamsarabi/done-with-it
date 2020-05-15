@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
-import { AppTextInput } from '../components'
+import { AppSwitch } from '../components'
 
 export const TestScreen = () => {
-  const [firstName, setFirstName] = useState('')
+  const [isNew, setIsNew] = useState(false)
   return (
     <View style={styles.container}>
-      <AppTextInput icon="email" placeholder="Username" clearButtonMode="while-editing" />
+      <AppSwitch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </View>
   )
 }
