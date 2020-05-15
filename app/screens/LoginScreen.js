@@ -1,8 +1,15 @@
 import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 import { Formik } from 'formik'
+import * as Yup from 'yup'
 
-import { Screen, AppTextInput, AppButton } from '../components'
+import { Screen, AppTextInput, AppButton, AppText } from '../components'
+import { palette } from '../config'
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label('Email'),
+  password: Yup.string().required().min(8).label('Password'),
+})
 
 export const LoginScreen = () => {
   return (
@@ -15,8 +22,9 @@ export const LoginScreen = () => {
           password: '',
         }}
         onSubmit={(values) => console.log('form submitted', values)}
+        validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, errors }) => (
           <>
             <AppTextInput
               autoCapitalize="none"
@@ -28,6 +36,7 @@ export const LoginScreen = () => {
               autoFocus
               onChangeText={handleChange('email')}
             />
+            {errors.email && <AppText style={styles.errorText}>{errors.email}</AppText>}
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -37,6 +46,7 @@ export const LoginScreen = () => {
               secureTextEntry
               onChangeText={handleChange('password')}
             />
+            {errors.password && <AppText style={styles.errorText}>{errors.password}</AppText>}
             <AppButton style={styles.loginButton} title="Login" onPress={handleSubmit} />
           </>
         )}
@@ -54,5 +64,9 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginTop: 32,
+  },
+  errorText: {
+    color: palette.danger,
+    fontWeight: '500',
   },
 })
