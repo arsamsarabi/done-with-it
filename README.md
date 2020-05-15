@@ -1,3 +1,3 @@
 # Done with it!
 
-An imaginary React native market place
+An imaginary market place built using `react-native`
