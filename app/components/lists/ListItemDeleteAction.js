@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { palette } from '../config'
+import { palette } from '../../config'
 
 export const ListItemDeleteAction = ({ onPress }) => (
   <TouchableWithoutFeedback onPress={onPress}>

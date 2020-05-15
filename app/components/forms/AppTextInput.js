@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { palette, defaultStyles } from '../config'
+import { palette, defaultStyles } from '../../config'
 
 export const AppTextInput = ({ icon, ...rest }) => {
   return (

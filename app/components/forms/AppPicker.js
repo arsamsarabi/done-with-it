@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { StyleSheet, TouchableWithoutFeedback, View, Modal, Button, FlatList } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { palette, defaultStyles } from '../config'
-import { AppText } from './AppText'
-import { Screen } from './Screen'
+import { palette } from '../../config'
+import { AppText } from '../AppText'
+import { Screen } from '../Screen'
 import { PickerItem } from './PickerItem'
 
 export const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem }) => {

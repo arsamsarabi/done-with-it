@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { palette } from '../config'
+import { palette } from '../../config'
 
 export const ListItemSeparator = () => <View style={styles.separator} />
 

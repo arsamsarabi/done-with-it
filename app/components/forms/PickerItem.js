@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { AppText } from './AppText'
+import { AppText } from '../AppText'
 
 export const PickerItem = ({ label, onPress }) => {
   return (
