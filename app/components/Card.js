@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 
 import { AppText } from './AppText'
-import { Palette } from '../config'
+import { palette } from '../config'
 
 export const Card = ({ image, title, subTitle }) => {
   return (
@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     borderRadius: 16,
-    backgroundColor: Palette.white,
+    backgroundColor: palette.white,
     elevation: 5,
-    shadowColor: Palette.lightGrey,
+    shadowColor: palette.lightGrey,
     shadowOffset: { width: 10, height: 10 },
     shadowOpacity: 1,
     shadowRadius: 5,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subTitle: {
-    color: Palette.primary,
+    color: palette.primary,
     marginTop: 8,
   },
 })

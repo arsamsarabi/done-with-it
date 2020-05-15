@@ -2,14 +2,14 @@ import React from 'react'
 import { StyleSheet, View, Image, StatusBar, Platform } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { Palette } from '../config'
+import { palette } from '../config'
 
 export const ViewImageScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.actionBar}>
-        <MaterialCommunityIcons name="trash-can-outline" color={Palette.snow} size={24} />
-        <MaterialCommunityIcons name="close" color={Palette.snow} size={24} />
+        <MaterialCommunityIcons name="trash-can-outline" color={palette.snow} size={24} />
+        <MaterialCommunityIcons name="close" color={palette.snow} size={24} />
       </View>
       <Image
         resizeMode="contain"
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: Palette.black,
+    backgroundColor: palette.black,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 16 : 48,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',

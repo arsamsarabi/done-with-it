@@ -12,7 +12,7 @@ const colors = {
   yellow: '#ffe66d',
 }
 
-export const Palette = {
+export const palette = {
   primary: colors.green,
   secondary: colors.red,
   danger: colors.danger,

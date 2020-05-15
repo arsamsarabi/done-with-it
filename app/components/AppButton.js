@@ -1,14 +1,14 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 
-import { Palette } from '../config'
+import { palette } from '../config'
 import { AppText } from './AppText'
 
 export const AppButton = ({ title, color = 'primary', onPress }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, { backgroundColor: Palette[color] }]}
+      style={[styles.button, { backgroundColor: palette[color] }]}
       activeOpacity={0.75}
     >
       <AppText style={styles.text}>{title}</AppText>
@@ -19,7 +19,7 @@ export const AppButton = ({ title, color = 'primary', onPress }) => {
 const styles = StyleSheet.create({
   button: {
     width: '100%',
-    backgroundColor: Palette.secondary,
+    backgroundColor: palette.secondary,
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textTransform: 'uppercase',
-    color: Palette.snow,
+    color: palette.snow,
     fontWeight: 'bold',
     fontSize: 16,
   },

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 
-import { Palette } from '../config'
+import { palette } from '../config'
 import { AppText, Screen, ListItem, Icon, ListItemSeparator } from '../components'
 
 const menuItems = [
@@ -9,14 +9,14 @@ const menuItems = [
     title: 'My Listings',
     icon: {
       name: 'format-list-bulleted',
-      bgColor: Palette.danger,
+      bgColor: palette.danger,
     },
   },
   {
     title: 'My Messages',
     icon: {
       name: 'email',
-      bgColor: Palette.primary,
+      bgColor: palette.primary,
     },
   },
 ]
@@ -51,7 +51,7 @@ export const AccountScreen = () => {
         <ListItem
           title="Log Out"
           onPress={handleLogOut}
-          IconCmponent={<Icon name="logout" bgColor={Palette.alert} />}
+          IconCmponent={<Icon name="logout" bgColor={palette.alert} />}
         />
       </View>
     </Screen>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logout: {
-    backgroundColor: Palette.white,
+    backgroundColor: palette.white,
     marginTop: 24,
   },
 })

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 
 import { AppText, ListItem } from '../components'
-import { Palette } from '../config'
+import { palette } from '../config'
 
 export const ListingDetailsScreen = () => {
   return (
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   price: {
-    color: Palette.primary,
+    color: palette.primary,
     marginTop: 12,
     fontWeight: 'bold',
     fontSize: 20,
