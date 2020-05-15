@@ -19,10 +19,17 @@ const categories = [
 ]
 
 export const TestScreen = () => {
-  const [isNew, setIsNew] = useState(false)
+  const [category, setCategory] = useState(categories[1])
+
   return (
     <View style={styles.container}>
-      <AppPicker icon="apps" placeholder="Category" items={categories} />
+      <AppPicker
+        icon="apps"
+        placeholder="Category"
+        items={categories}
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+      />
       <AppTextInput icon="email" placeholder="Username" />
     </View>
   )
