@@ -2,9 +2,9 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
 import { Palette } from '../config'
-import { AppText, Screen, ListItem, IconListItem } from '../components'
+import { AppText, Screen, ListItem, Icon } from '../components'
 
-export const MyAccount = () => {
+export const AccountScreen = () => {
   const handleMyListings = () => {}
   const handleMyMessages = () => {}
   const handleLogOut = () => {}
@@ -16,26 +16,23 @@ export const MyAccount = () => {
         subTitle="arsamsarabi@me.com"
         style={styles.me}
       />
-      <IconListItem
-        icon="format-list-bulleted"
-        iconColor={Palette.danger}
+      <ListItem
         title="My Listings"
         style={styles.myListings}
         onPress={handleMyListings}
+        ImageComponent={<Icon name="format-list-bulleted" bgColor={Palette.danger} />}
       />
-      <IconListItem
-        icon="email"
-        iconColor={Palette.primary}
+      <ListItem
         title="My Messages"
         style={styles.myMessages}
         onPress={handleMyMessages}
+        ImageComponent={<Icon name="email" bgColor={Palette.primary} />}
       />
-      <IconListItem
-        icon="logout"
-        iconColor={Palette.alert}
+      <ListItem
         title="Log Out"
         style={styles.logout}
         onPress={handleLogOut}
+        ImageComponent={<Icon name="logout" bgColor={Palette.alert} />}
       />
     </Screen>
   )

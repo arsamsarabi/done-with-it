@@ -5,15 +5,24 @@ import Swipeable from 'react-native-gesture-handler/Swipeable'
 import { AppText } from './AppText'
 import { Palette } from '../config'
 
-export const ListItem = ({ image, title, subTitle, onPress, rightActions, style }) => {
+export const ListItem = ({
+  image,
+  title,
+  subTitle,
+  onPress,
+  rightActions,
+  style,
+  ImageComponent,
+}) => {
   return (
     <Swipeable renderRightActions={rightActions}>
       <TouchableHighlight underlayColor={Palette.lightGrey} onPress={onPress}>
         <View style={[styles.container, style]}>
-          <Image resizeMethod="resize" source={image} style={styles.image} />
+          {ImageComponent}
+          {image && <Image resizeMethod="resize" source={image} style={styles.image} />}
           <View style={styles.info}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -35,6 +44,7 @@ const styles = StyleSheet.create({
   },
   info: {
     marginLeft: 12,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
