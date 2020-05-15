@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { AppSwitch } from '../components'
+import { AppSwitch, AppPicker, AppTextInput } from '../components'
 
 export const TestScreen = () => {
   const [isNew, setIsNew] = useState(false)
   return (
     <View style={styles.container}>
-      <AppSwitch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="Username" />
     </View>
   )
 }
