@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Image, StatusBar, Platform } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { palette } from '../config'
+import { palette } from '../../config'
 
 export const ViewImageScreen = () => {
   return (
@@ -14,7 +14,7 @@ export const ViewImageScreen = () => {
       <Image
         resizeMode="contain"
         style={styles.productImage}
-        source={require('../assets/images/plant.jpg')}
+        source={require('../../assets/images/plant.jpg')}
       />
     </View>
   )

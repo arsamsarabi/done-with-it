@@ -1,32 +1,32 @@
 import React, { useState } from 'react'
 import { StyleSheet, FlatList, View } from 'react-native'
 
-import { ListItem, Screen, ListItemSeparator, ListItemDeleteAction } from '../components'
+import { ListItem, Screen, ListItemSeparator, ListItemDeleteAction } from '../../components'
 
 const data = [
   {
     id: 1,
     title: 'T1',
     description: 'D1',
-    image: require('../assets/images/dummy/user1.jpg'),
+    image: require('../../assets/images/dummy/user1.jpg'),
   },
   {
     id: 2,
     title: 'T2',
     description: 'D2',
-    image: require('../assets/images/dummy/user2.jpg'),
+    image: require('../../assets/images/dummy/user2.jpg'),
   },
   {
     id: 3,
     title: 'T3',
     description: 'D3',
-    image: require('../assets/images/dummy/user3.jpg'),
+    image: require('../../assets/images/dummy/user3.jpg'),
   },
   {
     id: 4,
     title: 'T4',
     description: 'D4',
-    image: require('../assets/images/dummy/user4.jpg'),
+    image: require('../../assets/images/dummy/user4.jpg'),
   },
 ]
 

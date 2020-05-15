@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 
-import { palette } from '../config'
-import { AppText, Screen, ListItem, Icon, ListItemSeparator } from '../components'
+import { palette } from '../../config'
+import { AppText, Screen, ListItem, Icon, ListItemSeparator } from '../../components'
 
 const menuItems = [
   {
@@ -29,7 +29,7 @@ export const AccountScreen = () => {
     <Screen>
       <View style={styles.me}>
         <ListItem
-          image={require('../assets/images/arsam.jpeg')}
+          image={require('../../assets/images/arsam.jpeg')}
           title="Arsam Sarabi"
           subTitle="arsamsarabi@me.com"
         />

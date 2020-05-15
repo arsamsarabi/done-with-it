@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 
-import { AppText, ListItem } from '../components'
-import { palette } from '../config'
+import { AppText, ListItem } from '../../components'
+import { palette } from '../../config'
 
 export const ListingDetailsScreen = () => {
   return (
@@ -10,7 +10,7 @@ export const ListingDetailsScreen = () => {
       <Image
         resizeMethod="resize"
         style={styles.image}
-        source={require('../assets/images/dummy/gameboy.jpg')}
+        source={require('../../assets/images/dummy/gameboy.jpg')}
       />
       <View style={styles.info}>
         <AppText style={styles.title}>Amazing Gameboy</AppText>
@@ -18,7 +18,7 @@ export const ListingDetailsScreen = () => {
       </View>
       <View style={styles.user}>
         <ListItem
-          image={require('../assets/images/dummy/user4.jpg')}
+          image={require('../../assets/images/dummy/user4.jpg')}
           title="Isabelle Ringing"
           subTitle="7 Listings"
         />
