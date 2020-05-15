@@ -1,5 +1,6 @@
 export { AppForm } from './AppForm'
 export { AppFormField } from './AppFormField'
+export { AppFormPicker } from './AppFormPicker'
 export { AppPicker } from './AppPicker'
 export { AppSwitch } from './AppSwitch'
 export { AppTextInput } from './AppTextInput'
