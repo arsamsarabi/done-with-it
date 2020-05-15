@@ -4,11 +4,11 @@ import { StyleSheet, TouchableOpacity } from 'react-native'
 import { palette } from '../config'
 import { AppText } from './AppText'
 
-export const AppButton = ({ title, color = 'primary', onPress }) => {
+export const AppButton = ({ title, color = 'primary', onPress, style }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, { backgroundColor: palette[color] }]}
+      style={[styles.button, { backgroundColor: palette[color] }, style]}
       activeOpacity={0.75}
     >
       <AppText style={styles.text}>{title}</AppText>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24,
+    borderRadius: 12,
     marginVertical: 8,
   },
   text: {

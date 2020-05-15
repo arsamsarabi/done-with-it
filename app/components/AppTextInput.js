@@ -16,7 +16,7 @@ export const AppTextInput = ({ icon, ...rest }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: palette.lightGrey,
-    borderRadius: 24,
+    borderRadius: 12,
     flexDirection: 'row',
     width: '100%',
     padding: 16,
