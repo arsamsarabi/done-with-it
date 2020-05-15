@@ -1,6 +1,7 @@
 export { AccountScreen } from './AccountScreen'
 export { ListingDetailsScreen } from './ListingDetailsScreen'
 export { ListingsScreen } from './ListingsScreen'
+export { ListingEditScreen } from './ListingEditScreen'
 export { LoginScreen } from './LoginScreen'
 export { MessagesScreen } from './MessagesScreen'
 export { RegisterScreen } from './RegisterScreen'

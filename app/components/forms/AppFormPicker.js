@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFormikContext } from 'formik'
 
-import { AppPicker } from './AppTextInput'
+import { AppPicker } from './AppPicker'
 import { ErrorMessage } from './ErrorMessage'
 
-export const AppFormPicker = ({ items, name, placeholder, ...rest }) => {
+export const AppFormPicker = ({ items, name, placeholder }) => {
   const { values, errors, touched, setFieldValue } = useFormikContext()
 
   return (
