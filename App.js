@@ -7,7 +7,7 @@ import { Palette } from './app/config'
 export default App = () => {
   return (
     <View style={styles.container}>
-      <AccountScreen />
+      <ListingsScreen />
     </View>
   )
 }

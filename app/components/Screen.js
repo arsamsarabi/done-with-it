@@ -1,9 +1,14 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 import Constants from 'expo-constants'
 
-export const Screen = ({ children }) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>
+export const Screen = ({ children, style }) => {
+  return (
+    <SafeAreaView style={[styles.screen, style]}>
+      {/* HACK: (style={style}) SafeAreaView does not take horizontal padding*/}
+      <View style={style}>{children}</View>
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({

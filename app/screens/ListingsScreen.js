@@ -1,26 +1,26 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, FlatList } from 'react-native'
 
 import { Screen, Card } from '../components'
 
 const data = [
   {
     id: 1,
-    image: require('../assets/images/dummy/psp.jpg'),
-    title: 'Retro PlayStation Portable',
-    price: '£85',
-  },
-  {
-    id: 2,
     image: require('../assets/images/dummy/gameboy.jpg'),
     title: 'Handheld GameBoy',
     price: '£120',
   },
   {
+    id: 2,
+    image: require('../assets/images/dummy/lense.jpg'),
+    title: 'Super cool lense',
+    price: '£294.99',
+  },
+  {
     id: 3,
-    image: require('../assets/images/dummy/masks.jpg'),
-    title: 'Set of 10 Masks',
-    price: '£29.99',
+    image: require('../assets/images/dummy/psp.jpg'),
+    title: 'Retro PlayStation Portable',
+    price: '£85',
   },
   {
     id: 4,
@@ -33,11 +33,21 @@ const data = [
 export const ListingsScreen = () => {
   return (
     <Screen>
-      {data.map(({ id, image, title, price }) => (
-        <Card key={id} image={image} title={title} subTitle={price} />
-      ))}
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item: { id, image, title, price } }) => (
+          <View style={styles.cardContainer}>
+            <Card key={id} image={image} title={title} subTitle={price} />
+          </View>
+        )}
+      />
     </Screen>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  cardContainer: {
+    paddingHorizontal: 32,
+  },
+})
