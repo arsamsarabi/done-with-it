@@ -7,7 +7,14 @@ import { AppText } from '../AppText'
 import { Screen } from '../Screen'
 import { PickerItem } from './PickerItem'
 
-export const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem }) => {
+export const AppPicker = ({
+  icon,
+  items,
+  placeholder,
+  selectedItem,
+  onSelectItem,
+  width = '100%',
+}) => {
   const [modalVisibility, setModalVisibility] = useState(false)
 
   const handleItemPress = (item) => {
@@ -18,7 +25,7 @@ export const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisibility(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && <MaterialCommunityIcons name={icon} size={24} color={palette.text} />}
 
           {selectedItem ? (
@@ -51,7 +58,6 @@ const styles = StyleSheet.create({
     backgroundColor: palette.lightGrey,
     borderRadius: 12,
     flexDirection: 'row',
-    width: '100%',
     padding: 16,
     marginVertical: 8,
   },

@@ -34,8 +34,14 @@ export const ListingEditScreen = () => {
         validationSchema={validationSchema}
       >
         <AppFormField name="title" maxLength={255} placeholder="Title" autoFocus />
-        <AppFormField name="price" placeholder="Price" maxLength={8} keyboardType="numeric" />
-        <AppFormPicker items={categories} name="category" placeholder="Category" />
+        <AppFormField
+          name="price"
+          placeholder="Price"
+          maxLength={8}
+          keyboardType="numeric"
+          width={152}
+        />
+        <AppFormPicker items={categories} name="category" placeholder="Category" width={196} />
         <AppFormField
           name="description"
           maxLength={255}
