@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { StyleSheet, TouchableWithoutFeedback, View, Modal, Button, FlatList } from 'react-native'
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { palette } from '../../config'
 import { AppText } from '../AppText'
-import { Screen } from '../Screen'
-import { PickerItem } from './PickerItem'
+import { AppPickerModal } from './AppPickerModal'
 
 export const AppPicker = ({
   icon,
@@ -37,18 +36,12 @@ export const AppPicker = ({
           <MaterialCommunityIcons name="chevron-down" size={20} color={palette.text} />
         </View>
       </TouchableWithoutFeedback>
-      <Modal visible={modalVisibility} animationType="slide">
-        <Screen>
-          <Button title="close" onPress={() => setModalVisibility(false)} />
-          <FlatList
-            data={items}
-            keyExtractor={(item) => item.value.toString()}
-            renderItem={({ item }) => (
-              <PickerItem label={item.label} onPress={() => handleItemPress(item)} />
-            )}
-          />
-        </Screen>
-      </Modal>
+      <AppPickerModal
+        items={items}
+        handleItemPress={handleItemPress}
+        modalVisibility={modalVisibility}
+        setModalVisibility={setModalVisibility}
+      />
     </>
   )
 }
