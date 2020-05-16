@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { AppText } from '../AppText'
 import { palette } from '../../config'
 
-export const ListItem = ({ image, title, subTitle, onPress, rightActions, IconCmponent }) => {
+export const ListItem = ({
+  image,
+  title,
+  subTitle,
+  onPress,
+  rightActions,
+  IconCmponent,
+  showChevronRight = true,
+}) => {
+  const [rightActionsOpen, setRightActionsOpen] = useState(false)
   return (
-    <Swipeable renderRightActions={rightActions}>
+    <Swipeable
+      renderRightActions={rightActions}
+      onSwipeableRightWillOpen={() => setRightActionsOpen(true)}
+      onSwipeableWillClose={() => setRightActionsOpen(false)}
+    >
       <TouchableHighlight underlayColor={palette.lightGrey} onPress={onPress}>
         <View style={styles.container}>
           {IconCmponent}
@@ -16,6 +30,15 @@ export const ListItem = ({ image, title, subTitle, onPress, rightActions, IconCm
             <AppText style={styles.title}>{title}</AppText>
             {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
+          {showChevronRight && (
+            <View style={styles.chevron}>
+              <MaterialCommunityIcons
+                name={rightActionsOpen ? 'chevron-right' : 'chevron-left'}
+                size={24}
+                color={palette.grey}
+              />
+            </View>
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -38,6 +61,7 @@ const styles = StyleSheet.create({
   info: {
     marginLeft: 12,
     justifyContent: 'center',
+    flex: 1,
   },
   title: {
     fontSize: 20,

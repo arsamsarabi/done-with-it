@@ -54,6 +54,7 @@ export const MessagesScreen = () => {
             image={item.image}
             onPress={() => console.log('Message Selected', item)}
             rightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item.id)} />}
+            showChevronRight
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
