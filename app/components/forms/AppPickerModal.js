@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Modal, FlatList } from 'react-native'
 
 import { Screen } from '../Screen'
-import { PickerIconItem } from './PickerIconItem'
+import { CategoryPickerItem } from './CategoryPickerItem'
 import { PickerItem } from './PickerItem'
 import { AppButton } from '../AppButton'
 
@@ -11,7 +11,8 @@ export const AppPickerModal = ({
   setModalVisibility,
   handleItemPress,
   items,
-  itemsMode = 'icon',
+  numberOfColumns = 1,
+  PickerItemComponent = PickerItem,
 }) => {
   return (
     <Modal visible={modalVisibility} animationType="slide">
@@ -19,18 +20,10 @@ export const AppPickerModal = ({
         <FlatList
           data={items}
           keyExtractor={(item) => item.value.toString()}
-          numColumns={3}
-          columnWrapperStyle={{
-            justifyContent: 'space-around',
-            marginVertical: 8,
-          }}
-          renderItem={({ item }) =>
-            itemsMode === 'icon' ? (
-              <PickerIconItem item={item} onPress={() => handleItemPress(item)} />
-            ) : (
-              <PickerItem label={item.label} onPress={() => handleItemPress(item)} />
-            )
-          }
+          numColumns={numberOfColumns}
+          renderItem={({ item }) => (
+            <PickerItemComponent item={item} onPress={() => handleItemPress(item)} />
+          )}
           style={styles.flatList}
         />
         <AppButton

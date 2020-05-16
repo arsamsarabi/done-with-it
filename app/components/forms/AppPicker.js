@@ -13,6 +13,8 @@ export const AppPicker = ({
   selectedItem,
   onSelectItem,
   width = '100%',
+  PickerItemComponent,
+  numberOfColumns,
 }) => {
   const [modalVisibility, setModalVisibility] = useState(false)
 
@@ -41,6 +43,8 @@ export const AppPicker = ({
         handleItemPress={handleItemPress}
         modalVisibility={modalVisibility}
         setModalVisibility={setModalVisibility}
+        PickerItemComponent={PickerItemComponent}
+        numberOfColumns={numberOfColumns}
       />
     </>
   )

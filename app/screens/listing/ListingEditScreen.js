@@ -2,7 +2,14 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
 
-import { Screen, AppFormField, SubmitButton, AppForm, AppFormPicker } from '../../components'
+import {
+  Screen,
+  AppFormField,
+  SubmitButton,
+  AppForm,
+  AppFormPicker,
+  CategoryPickerItem,
+} from '../../components'
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -44,7 +51,14 @@ export const ListingEditScreen = () => {
           keyboardType="numeric"
           width={152}
         />
-        <AppFormPicker items={categories} name="category" placeholder="Category" width={196} />
+        <AppFormPicker
+          items={categories}
+          name="category"
+          placeholder="Category"
+          width="75%"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+        />
         <AppFormField
           name="description"
           maxLength={255}
@@ -52,7 +66,6 @@ export const ListingEditScreen = () => {
           multiline
           numberOfLines={3}
         />
-
         <SubmitButton style={styles.saveButton} title="Save" />
       </AppForm>
     </Screen>
