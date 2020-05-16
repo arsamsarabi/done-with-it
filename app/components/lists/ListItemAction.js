@@ -1,14 +1,16 @@
 import React from 'react'
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { Animated, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { palette } from '../../config'
 
-export const ListItemAction = ({ onPress, icon, color }) => (
+export const ListItemAction = ({ onPress, icon, color, trans }) => (
   <TouchableWithoutFeedback onPress={onPress}>
-    <View style={[styles.container, { backgroundColor: color }]}>
+    <Animated.View
+      style={[styles.container, { backgroundColor: color, transform: [{ translateX: trans }] }]}
+    >
       <MaterialCommunityIcons name={icon} color={palette.snow} size={32} />
-    </View>
+    </Animated.View>
   </TouchableWithoutFeedback>
 )
 

@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { AppText } from '../AppText'
 import { palette } from '../../config'
+import { ListActionRenderer } from './ListActionRenderer'
 
 export const ListItem = ({
   image,
@@ -22,7 +23,9 @@ export const ListItem = ({
   }
   return (
     <Swipeable
-      renderRightActions={rightActions}
+      renderRightActions={(progress) => (
+        <ListActionRenderer progress={progress} actions={rightActions} swipableRef={swipableEl} />
+      )}
       onSwipeableRightWillOpen={() => setRightActionsOpen(true)}
       onSwipeableWillClose={() => setRightActionsOpen(false)}
       ref={swipableEl}

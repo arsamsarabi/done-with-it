@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 
 import { ListItem, Screen, ListItemSeparator, ListItemAction } from '../../components'
 import { palette } from '../../config'
@@ -44,7 +44,7 @@ export const MessagesScreen = () => {
   }
 
   return (
-    <Screen style={styles.container}>
+    <Screen>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -54,13 +54,23 @@ export const MessagesScreen = () => {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log('Message Selected', item)}
-            rightActions={() => (
-              <ListItemAction
-                onPress={() => handleDelete(item.id)}
-                icon="trash-can-outline"
-                color={palette.danger}
-              />
-            )}
+            rightActions={[
+              {
+                onPress: () => console.log('delete', item),
+                icon: 'trash-can-outline',
+                color: palette.danger,
+              },
+              {
+                onPress: () => console.log('mark as read', item),
+                icon: 'check-all',
+                color: palette.success,
+              },
+              {
+                onPress: () => console.log('flag', item),
+                icon: 'flag-variant',
+                color: palette.alert,
+              },
+            ]}
             showChevronRight
           />
         )}
@@ -71,7 +81,3 @@ export const MessagesScreen = () => {
     </Screen>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {},
-})
