@@ -12,12 +12,15 @@ const validationSchema = Yup.object().shape({
 })
 
 const categories = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Clothing', value: 2 },
-  { label: 'Gadget', value: 3 },
-  { label: 'Electronics', value: 4 },
-  { label: 'Stationery', value: 5 },
-  { label: 'Decorative', value: 6 },
+  { label: 'Furniture', value: 1, icon: 'sofa', color: '#2bcbba' },
+  { label: 'Clothing', value: 2, icon: 'shoe-heel', color: '#FF4081' },
+  { label: 'Books', value: 3, icon: 'book-open-page-variant', color: '#fc5c65' },
+  { label: 'Electronics', value: 4, icon: 'monitor-speaker', color: '#fed330' },
+  { label: 'Home & Kitchen', value: 5, icon: 'home-city', color: '#45aaf2' },
+  { label: 'Decorative', value: 6, icon: 'format-paint', color: '#26de81' },
+  { label: 'Cars', value: 7, icon: 'car-sports', color: '#4b7bec' },
+  { label: 'Sports', value: 8, icon: 'soccer', color: '#fd9644' },
+  { label: 'Other', value: 9, icon: 'blur', color: '#7f8c8d' },
 ]
 
 export const ListingEditScreen = () => {
