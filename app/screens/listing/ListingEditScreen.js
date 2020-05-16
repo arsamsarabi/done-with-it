@@ -22,7 +22,7 @@ const categories = [
 
 export const ListingEditScreen = () => {
   return (
-    <Screen>
+    <Screen paddingHorizontal={16}>
       <AppForm
         initialValues={{
           title: '',
