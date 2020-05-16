@@ -1,5 +1,5 @@
 import React from 'react'
 
-import { ListingEditScreen } from './app/screens'
+import { MessagesScreen } from './app/screens'
 
-export default App = () => <ListingEditScreen />
+export default App = () => <MessagesScreen />

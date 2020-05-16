@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { StyleSheet, FlatList, View } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 
-import { ListItem, Screen, ListItemSeparator, ListItemDeleteAction } from '../../components'
+import { ListItem, Screen, ListItemSeparator, ListItemAction } from '../../components'
+import { palette } from '../../config'
 
 const data = [
   {
@@ -53,7 +54,13 @@ export const MessagesScreen = () => {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log('Message Selected', item)}
-            rightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item.id)} />}
+            rightActions={() => (
+              <ListItemAction
+                onPress={() => handleDelete(item.id)}
+                icon="trash-can-outline"
+                color={palette.danger}
+              />
+            )}
             showChevronRight
           />
         )}

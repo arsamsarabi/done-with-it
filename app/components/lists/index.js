@@ -1,3 +1,3 @@
 export { ListItem } from './ListItem'
-export { ListItemDeleteAction } from './ListItemDeleteAction'
+export { ListItemAction } from './ListItemAction'
 export { ListItemSeparator } from './ListItemSeparator'
