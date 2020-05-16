@@ -3,10 +3,10 @@ import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { palette } from '../../config'
-import { AppText } from '../AppText'
-import { AppPickerModal } from './AppPickerModal'
+import { Text } from '../Text'
+import { PickerModal } from './PickerModal'
 
-export const AppPicker = ({
+export const Picker = ({
   icon,
   items,
   placeholder,
@@ -30,15 +30,15 @@ export const AppPicker = ({
           {icon && <MaterialCommunityIcons name={icon} size={24} color={palette.text} />}
 
           {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
+            <Text style={styles.text}>{selectedItem.label}</Text>
           ) : (
-            <AppText style={[styles.text, styles.placeholder]}>{placeholder}</AppText>
+            <Text style={[styles.text, styles.placeholder]}>{placeholder}</Text>
           )}
 
           <MaterialCommunityIcons name="chevron-down" size={20} color={palette.text} />
         </View>
       </TouchableWithoutFeedback>
-      <AppPickerModal
+      <PickerModal
         items={items}
         handleItemPress={handleItemPress}
         modalVisibility={modalVisibility}

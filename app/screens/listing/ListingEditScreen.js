@@ -4,10 +4,10 @@ import * as Yup from 'yup'
 
 import {
   Screen,
-  AppFormField,
+  FormField,
   SubmitButton,
-  AppForm,
-  AppFormPicker,
+  Form,
+  FormPicker,
   CategoryPickerItem,
 } from '../../components'
 
@@ -33,7 +33,7 @@ const categories = [
 export const ListingEditScreen = () => {
   return (
     <Screen paddingHorizontal={16}>
-      <AppForm
+      <Form
         initialValues={{
           title: '',
           price: '',
@@ -43,15 +43,15 @@ export const ListingEditScreen = () => {
         onSubmit={(values) => console.log('form submitted', values)}
         validationSchema={validationSchema}
       >
-        <AppFormField name="title" maxLength={255} placeholder="Title" autoFocus />
-        <AppFormField
+        <FormField name="title" maxLength={255} placeholder="Title" autoFocus />
+        <FormField
           name="price"
           placeholder="Price"
           maxLength={8}
           keyboardType="numeric"
           width={152}
         />
-        <AppFormPicker
+        <FormPicker
           items={categories}
           name="category"
           placeholder="Category"
@@ -59,7 +59,7 @@ export const ListingEditScreen = () => {
           numberOfColumns={3}
           PickerItemComponent={CategoryPickerItem}
         />
-        <AppFormField
+        <FormField
           name="description"
           maxLength={255}
           placeholder="Description"
@@ -67,7 +67,7 @@ export const ListingEditScreen = () => {
           numberOfLines={3}
         />
         <SubmitButton style={styles.saveButton} title="Save" />
-      </AppForm>
+      </Form>
     </Screen>
   )
 }

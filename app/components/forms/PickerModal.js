@@ -2,11 +2,10 @@ import React from 'react'
 import { StyleSheet, Modal, FlatList } from 'react-native'
 
 import { Screen } from '../Screen'
-import { CategoryPickerItem } from './CategoryPickerItem'
 import { PickerItem } from './PickerItem'
-import { AppButton } from '../AppButton'
+import { Button } from '../Button'
 
-export const AppPickerModal = ({
+export const PickerModal = ({
   modalVisibility,
   setModalVisibility,
   handleItemPress,
@@ -26,7 +25,7 @@ export const AppPickerModal = ({
           )}
           style={styles.flatList}
         />
-        <AppButton
+        <Button
           style={styles.closeButton}
           color="secondary"
           title="close"

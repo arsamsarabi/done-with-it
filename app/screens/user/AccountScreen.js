@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 
 import { palette } from '../../config'
-import { AppText, Screen, ListItem, Icon, ListItemSeparator } from '../../components'
+import { Screen, ListItem, Icon, ListItemSeparator } from '../../components'
 
 const menuItems = [
   {

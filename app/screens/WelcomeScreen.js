@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, ImageBackground, Image, StatusBar, Platform } from 'react-native'
 
-import { AppButton, AppText } from '../components'
+import { Button, Text } from '../components'
 
 export const WelcomeScreen = () => {
   return (
@@ -17,11 +17,11 @@ export const WelcomeScreen = () => {
           fadeDuration={500}
           style={styles.logo}
         />
-        <AppText style={styles.tagline}>Sell What You Don't Need</AppText>
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.actions}>
-        <AppButton title="Login" />
-        <AppButton title="Register" color="secondary" />
+        <Button title="Login" />
+        <Button title="Register" color="secondary" />
       </View>
     </ImageBackground>
   )

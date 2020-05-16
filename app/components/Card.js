@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 
-import { AppText } from './AppText'
+import { Text } from './Text'
 import { palette } from '../config'
 
 export const Card = ({ image, title, subTitle }) => {
@@ -9,8 +9,8 @@ export const Card = ({ image, title, subTitle }) => {
     <View style={styles.container}>
       <Image resizeMethod="resize" source={image} style={styles.image} />
       <View style={styles.info}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subTitle}>{subTitle}</Text>
       </View>
     </View>
   )

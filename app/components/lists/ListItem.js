@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { AppText } from '../AppText'
+import { Text } from '../Text'
 import { palette } from '../../config'
 import { ListActionRenderer } from './ListActionRenderer'
 
@@ -42,13 +42,13 @@ export const ListItem = ({
           {IconCmponent}
           {image && <Image resizeMethod="resize" source={image} style={styles.image} />}
           <View style={styles.info}>
-            <AppText style={styles.title} numberOfLines={1}>
+            <Text style={styles.title} numberOfLines={1}>
               {title}
-            </AppText>
+            </Text>
             {subTitle && (
-              <AppText style={styles.subTitle} numberOfLines={3}>
+              <Text style={styles.subTitle} numberOfLines={3}>
                 {subTitle}
-              </AppText>
+              </Text>
             )}
           </View>
           {showChevronRight && (

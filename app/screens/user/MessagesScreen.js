@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FlatList } from 'react-native'
 
-import { ListItem, Screen, ListItemSeparator, ListItemAction } from '../../components'
+import { ListItem, Screen, ListItemSeparator } from '../../components'
 import { palette } from '../../config'
 
 const data = [
