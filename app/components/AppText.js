@@ -3,6 +3,8 @@ import { Text } from 'react-native'
 
 import { defaultStyles } from '../config'
 
-export const AppText = ({ children, style }) => (
-  <Text style={[defaultStyles.text, style]}>{children}</Text>
+export const AppText = ({ children, style, ...rest }) => (
+  <Text style={[defaultStyles.text, style]} {...rest}>
+    {children}
+  </Text>
 )

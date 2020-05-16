@@ -1,47 +1,67 @@
 import React, { useState } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 
-import { AppSwitch, AppPicker, AppTextInput } from '../components'
+import { Screen, ListItemDeleteAction, ListItemSeparator, ListItem } from '../components'
 
-const categories = [
+const data = [
   {
-    label: 'Furniture',
-    value: 1,
+    id: 1,
+    title:
+      'Et doloremque nihil rerum ea repellendus aut consequatur facilis. In aut quasi facilis perspiciatis consequatur sit commodi. Nesciunt dolores et ducimus fugit.',
+    description:
+      'Et quia dolorum ut fugiat magni autem. Repellat iure perspiciatis est ut blanditiis nulla harum voluptas officia. Aut voluptas iure. \n Molestiae et earum. Facilis velit maiores autem aspernatur animi quidem suscipit ad magni. Earum odit neque doloremque consequuntur alias. \nDolor est iure beatae dolore sunt minima dicta nemo ratione. Culpa ullam magnam molestias qui. Ducimus hic culpa. Et accusantium molestiae consequatur molestiae et.',
+    image: require('../assets/images/dummy/user1.jpg'),
   },
   {
-    label: 'Clothing',
-    value: 2,
+    id: 2,
+    title: 'T2',
+    description: 'D2',
+    image: require('../assets/images/dummy/user2.jpg'),
   },
   {
-    label: 'Gadgets',
-    value: 3,
+    id: 3,
+    title: 'T3',
+    description: 'D3',
+    image: require('../assets/images/dummy/user3.jpg'),
+  },
+  {
+    id: 4,
+    title: 'T4',
+    description: 'D4',
+    image: require('../assets/images/dummy/user4.jpg'),
   },
 ]
 
 export const TestScreen = () => {
-  const [category, setCategory] = useState(categories[1])
-
+  const [messages, setMessage] = useState(data)
+  const [refreshing, setrefreshing] = useState(false)
+  const handleDelete = (messageId) => {
+    setMessage(messages.filter((message) => message.id !== messageId))
+  }
+  const handleRefresh = () => {
+    setMessage(data)
+  }
   return (
-    <View style={styles.container}>
-      <AppPicker
-        icon="apps"
-        placeholder="Category"
-        items={categories}
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
+    <Screen>
+      <FlatList
+        data={messages}
+        keyExtractor={(message) => message.id.toString()}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            subTitle={item.description}
+            image={item.image}
+            onPress={() => console.log('Message Selected', item)}
+            rightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item.id)} />}
+            showChevronRight
+          />
+        )}
+        ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
       />
-      <AppTextInput icon="email" placeholder="Username" />
-    </View>
+    </Screen>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    paddingHorizontal: 12,
-    paddingVertical: 64,
-  },
-})
+const styles = StyleSheet.create({})

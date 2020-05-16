@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -16,28 +16,48 @@ export const ListItem = ({
   showChevronRight = true,
 }) => {
   const [rightActionsOpen, setRightActionsOpen] = useState(false)
+  const swipableEl = useRef(null)
+  const onChevronRightPress = () => {
+    swipableEl.current.openRight()
+  }
   return (
     <Swipeable
       renderRightActions={rightActions}
       onSwipeableRightWillOpen={() => setRightActionsOpen(true)}
       onSwipeableWillClose={() => setRightActionsOpen(false)}
+      ref={swipableEl}
     >
       <TouchableHighlight underlayColor={palette.lightGrey} onPress={onPress}>
-        <View style={styles.container}>
+        <View
+          style={[
+            styles.container,
+            {
+              paddingRight: showChevronRight ? 0 : 16,
+            },
+          ]}
+        >
           {IconCmponent}
           {image && <Image resizeMethod="resize" source={image} style={styles.image} />}
           <View style={styles.info}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            {subTitle && (
+              <AppText style={styles.subTitle} numberOfLines={3}>
+                {subTitle}
+              </AppText>
+            )}
           </View>
           {showChevronRight && (
-            <View style={styles.chevron}>
-              <MaterialCommunityIcons
-                name={rightActionsOpen ? 'chevron-right' : 'chevron-left'}
-                size={24}
-                color={palette.grey}
-              />
-            </View>
+            <TouchableHighlight underlayColor={palette.lightGrey} onPress={onChevronRightPress}>
+              <View style={styles.chevron}>
+                <MaterialCommunityIcons
+                  name={rightActionsOpen ? 'chevron-right' : 'chevron-left'}
+                  size={24}
+                  color={palette.grey}
+                />
+              </View>
+            </TouchableHighlight>
           )}
         </View>
       </TouchableHighlight>
@@ -70,5 +90,11 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 16,
     color: palette.grey,
+  },
+  chevron: {
+    height: 72,
+    width: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })
