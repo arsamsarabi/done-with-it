@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import * as ImagePicker from 'expo-image-picker'
-import { View, StyleSheet, Button, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Image, TouchableWithoutFeedback, View, Alert } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { palette } from '../../config'
@@ -17,9 +17,12 @@ export const ImageInput = ({ imageUri, onChangeImage }) => {
     requestPermission()
   }, [])
 
-  selectImage = async () => {
+  const selectImage = async () => {
     try {
-      const { canceled, uri } = await ImagePicker.launchImageLibraryAsync()
+      const { canceled, uri } = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Image,
+        quality: 0.5,
+      })
       if (!canceled) {
         onChangeImage(uri)
       }
@@ -28,35 +31,39 @@ export const ImageInput = ({ imageUri, onChangeImage }) => {
     }
   }
 
+  const handlePress = () => {
+    if (!imageUri) {
+      selectImage()
+    } else {
+      Alert.alert('Delete', 'Are you sure you want to delete this image?', [
+        { text: 'Yes', onPress: () => onChangeImage(null) },
+        { text: 'No' },
+      ])
+    }
+  }
+
   return (
-    <>
-      {!imageUri && (
-        <TouchableOpacity onPress={selectImage} style={styles.button}>
-          <MaterialCommunityIcons name="camera" size={40} color={palette.darkGrey} />
-        </TouchableOpacity>
-      )}
-      {imageUri && (
-        <TouchableOpacity onPress={() => onChangeImage(undefined)}>
-          <Image source={{ uri: imageUri }} style={styles.image} />
-        </TouchableOpacity>
-      )}
-    </>
+    <TouchableWithoutFeedback onPress={handlePress}>
+      <View style={styles.container}>
+        {!imageUri && <MaterialCommunityIcons name="camera" size={40} color={palette.darkGrey} />}
+        {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
 const styles = StyleSheet.create({
-  constainer: {},
-  button: {
+  container: {
     backgroundColor: palette.lightGrey,
-    width: 100,
-    height: 100,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  image: {
     width: 100,
     height: 100,
-    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 })
