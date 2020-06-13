@@ -1,18 +1,18 @@
 import React from 'react'
 import { StyleSheet, View, ImageBackground, Image, StatusBar, Platform } from 'react-native'
 
-import { Button, Text } from '../components'
+import { Button, Text } from '../../components'
 
-export const WelcomeScreen = () => {
+export const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.background}
-      source={require('../assets/images/bedroom.jpg')}
+      source={require('../../assets/images/bedroom.jpg')}
       blurRadius={5}
     >
       <View style={styles.logoContainer}>
         <Image
-          source={require('../assets/images/logo.png')}
+          source={require('../../assets/images/logo.png')}
           blurRadius={0}
           fadeDuration={500}
           style={styles.logo}
@@ -20,8 +20,12 @@ export const WelcomeScreen = () => {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.actions}>
-        <Button title="Login" />
-        <Button title="Register" color="secondary" />
+        <Button title="Login" onPress={() => navigation.navigate('Login')} />
+        <Button
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate('Register')}
+        />
       </View>
     </ImageBackground>
   )

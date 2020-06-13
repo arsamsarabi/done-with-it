@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
 
 import { Screen, FormField, SubmitButton, Form } from '../../components'
@@ -12,8 +12,6 @@ const validationSchema = Yup.object().shape({
 export const LoginScreen = () => {
   return (
     <Screen>
-      <Image source={require('../../assets/images/logo.png')} style={styles.logo} />
-
       <Form
         initialValues={{
           email: '',

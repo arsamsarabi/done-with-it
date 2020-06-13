@@ -4,7 +4,7 @@ import Constants from 'expo-constants'
 
 import { palette } from '../config'
 
-export const Screen = ({ children, style, paddingHorizontal = 0 }) => (
+export const Screen = ({ children, style, paddingHorizontal = 16 }) => (
   <SafeAreaView style={[styles.screen, style]}>
     <View style={[styles.innerView, { paddingHorizontal }]}>{children}</View>
   </SafeAreaView>

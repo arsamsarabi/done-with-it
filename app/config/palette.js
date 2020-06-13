@@ -2,7 +2,7 @@ const colors = {
   snow: '#f1f1f1',
   white: '#ffffff',
   black: '#000000',
-  softBlack: '#0c0c0c',
+  softBlack: '#201C1C',
   lightGrey: '#dfe6e9',
   grey: '#95a5a6',
   darkGrey: '#2c3e50',
