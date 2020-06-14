@@ -4,11 +4,11 @@ import { View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import { Text } from './Text'
 import palette from '../config/palette'
 
-export const Card = ({ image, title, subTitle, onPress }) => {
+export const Card = ({ imageUrl, title, subTitle, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
-        <Image resizeMethod="resize" source={image} style={styles.image} />
+        <Image resizeMethod="resize" source={{ uri: imageUrl }} style={styles.image} />
         <View style={styles.info}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subTitle}>{subTitle}</Text>

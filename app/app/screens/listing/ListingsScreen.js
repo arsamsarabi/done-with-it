@@ -1,47 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 
-import { Screen, Card } from '../../components'
+import { Screen, Card, Text, Button } from '../../components'
 import routes from '../../navigation/routes'
-
-const data = [
-  {
-    id: '1',
-    images: [require('../../assets/images/dummy/gameboy.jpg')],
-    title: 'Handheld GameBoy',
-    price: '£120',
-  },
-  {
-    id: '2',
-    images: [require('../../assets/images/dummy/lense.jpg')],
-    title: 'Super cool lense',
-    price: '£294.99',
-  },
-  {
-    id: '3',
-    images: [require('../../assets/images/dummy/psp.jpg')],
-    title: 'Retro PlayStation Portable',
-    price: '£85',
-  },
-  {
-    id: '4',
-    images: [require('../../assets/images/dummy/vr.jpg')],
-    title: 'Virtual Reality headset',
-    price: '£289.99',
-  },
-]
+import listingsApi from '../../api/listings'
+import palette from '../../config/palette'
 
 const ListingsScreen = ({ navigation }) => {
+  const [listings, setListings] = useState([])
+  const [hasError, setHasError] = useState([])
+
+  const loadListings = async () => {
+    const response = await listingsApi.getListings()
+    if (!response.ok) return setHasError(true)
+
+    setHasError(false)
+    setListings(response.data)
+  }
+
+  useEffect(() => {
+    loadListings()
+  }, [])
+
   return (
     <Screen>
+      {hasError && (
+        <View style={styles.errorWrapper}>
+          <Text style={styles.errorMessage}>Couldn't retieve the listings.</Text>
+          <Button title="Retry" onPress={loadListings} />
+        </View>
+      )}
       <FlatList
-        data={data}
-        keyExtractor={(item) => item.id}
+        data={listings}
+        keyExtractor={(item) => String(item.id)}
         renderItem={({ item, item: { id, images, title, price } }) => (
           <View style={styles.cardContainer}>
             <Card
               key={id}
-              image={images[0]}
+              imageUrl={images[0].url}
               title={title}
               subTitle={price}
               onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
@@ -56,6 +52,15 @@ const ListingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   cardContainer: {
     paddingHorizontal: 32,
+  },
+  errorWrapper: {
+    paddingHorizontal: 32,
+    paddingTop: 32,
+  },
+  errorMessage: {
+    color: palette.danger,
+    fontSize: 20,
+    marginBottom: 16,
   },
 })
 
