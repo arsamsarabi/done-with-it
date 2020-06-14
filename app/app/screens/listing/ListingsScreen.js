@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 
 import { Screen, Card, Text, Button } from '../../components'
+import ActivityIndicator from '../../components/ActivityIndicator'
 import routes from '../../navigation/routes'
 import listingsApi from '../../api/listings'
 import palette from '../../config/palette'
+import useApi from '../../hooks/useApi'
 
 const ListingsScreen = ({ navigation }) => {
-  const [listings, setListings] = useState([])
-  const [hasError, setHasError] = useState([])
-
-  const loadListings = async () => {
-    const response = await listingsApi.getListings()
-    if (!response.ok) return setHasError(true)
-
-    setHasError(false)
-    setListings(response.data)
-  }
+  const { data: listings, error, loading, request: loadListings } = useApi(listingsApi.getListings)
 
   useEffect(() => {
     loadListings()
@@ -24,12 +17,13 @@ const ListingsScreen = ({ navigation }) => {
 
   return (
     <Screen>
-      {hasError && (
+      {error && (
         <View style={styles.errorWrapper}>
           <Text style={styles.errorMessage}>Couldn't retieve the listings.</Text>
           <Button title="Retry" onPress={loadListings} />
         </View>
       )}
+      <ActivityIndicator isVisible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(item) => String(item.id)}
