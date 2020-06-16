@@ -12,6 +12,8 @@ import {
   FormImagePicker,
 } from '../../components'
 import useUserLocation from '../../hooks/useUserLocation'
+import useApi from '../../hooks/useApi'
+import listingsApi from '../../api/listings'
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -34,23 +36,25 @@ const categories = [
 ]
 
 const ListingEditScreen = ({ route }) => {
-  const item = route.params?.item || {}
-  let initialValues = {
-    id: item.id || null,
-    title: item.title || '',
-    price: item.price || '',
-    description: '',
-    category: null,
-    images: item.images || [],
-  }
+  const { data: listing, error, loading, request: postListing } = useApi(listingsApi.postListing)
 
   const { location } = useUserLocation()
+
+  const handleSubmit = (formValues) => {
+    postListing({ ...formValues, location })
+  }
 
   return (
     <Screen paddingHorizontal={16}>
       <Form
-        initialValues={initialValues}
-        onSubmit={(values) => console.log('form submitted', values)}
+        initialValues={{
+          title: '',
+          price: '',
+          description: '',
+          category: null,
+          images: [],
+        }}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />

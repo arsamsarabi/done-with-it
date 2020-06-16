@@ -33,7 +33,7 @@ const ListingsScreen = ({ navigation }) => {
               key={id}
               imageUrl={images[0].url}
               title={title}
-              subTitle={price}
+              subTitle={`£${price.toFixed(2)}`}
               onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
             />
           </View>
