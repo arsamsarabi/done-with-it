@@ -14,9 +14,7 @@ const Tab = createBottomTabNavigator()
 const AppNavigator = () => (
   <Tab.Navigator
     tabBarOptions={{
-      activeBackgroundColor: palette.primary,
-      activeTintColor: palette.snow,
-      inactiveBackgroundColor: palette.lightGrey,
+      activeTintColor: palette.primary,
       inactiveTintColor: palette.text,
     }}
   >
@@ -35,6 +33,9 @@ const AppNavigator = () => (
       options={({ navigation }) => ({
         tabBarButton: (props) => (
           <NewListingButton {...props} onPress={() => navigation.navigate(routes.LISTING_EDIT)} />
+        ),
+        tabBarIcon: ({ size, color }) => (
+          <MaterialCommunityIcons name="plus-circle" size={size} color={color} />
         ),
       })}
     />
