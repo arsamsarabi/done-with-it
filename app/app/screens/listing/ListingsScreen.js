@@ -32,6 +32,7 @@ const ListingsScreen = ({ navigation }) => {
             <Card
               key={id}
               imageUrl={images[0].url}
+              thumbnailUrl={images[0].thumbnailUrl}
               title={title}
               subTitle={`£${price.toFixed(2)}`}
               onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}

@@ -1,14 +1,23 @@
 import React from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Image } from 'react-native-expo-image-cache'
 
 import { Text, ListItem } from '../../components'
 import palette from '../../config/palette'
 
 const ListingDetailsScreen = ({ route }) => {
-  const { images, title, price } = route.params
+  const { images, title, price, thumbnailUrl } = route.params
+
+  console.log(images)
+
   return (
     <View style={styles.container}>
-      <Image resizeMethod="resize" style={styles.image} source={images[0]} />
+      <Image
+        uri={images[0].url}
+        style={styles.image}
+        preview={{ uri: thumbnailUrl }}
+        tint="light"
+      />
       <View style={styles.info}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.price}>{price}</Text>

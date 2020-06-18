@@ -1,14 +1,15 @@
 import React from 'react'
-import { View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { Image } from 'react-native-expo-image-cache'
 
 import { Text } from './Text'
 import palette from '../config/palette'
 
-export const Card = ({ imageUrl, title, subTitle, onPress }) => {
+export const Card = ({ imageUrl, title, subTitle, onPress, thumbnailUrl }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
-        <Image resizeMethod="resize" source={{ uri: imageUrl }} style={styles.image} />
+        <Image uri={imageUrl} style={styles.image} preview={{ uri: thumbnailUrl }} tint="light" />
         <View style={styles.info}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subTitle}>{subTitle}</Text>
