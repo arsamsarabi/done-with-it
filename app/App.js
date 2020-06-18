@@ -10,7 +10,7 @@ export default App = () => (
   <>
     <OfflineNotice />
     <NavigationContainer theme={NavigationTheme}>
-      <AppNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   </>
 )
