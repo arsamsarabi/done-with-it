@@ -28,4 +28,5 @@ export default {
   lightGrey: colors.lightGrey,
   grey: colors.grey,
   darkGrey: colors.darkGrey,
+  overlayBg: 'rgba(255, 255, 255, 0.75)',
 }

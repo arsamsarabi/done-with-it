@@ -16,31 +16,33 @@ const ListingsScreen = ({ navigation }) => {
   }, [])
 
   return (
-    <Screen>
-      {error && (
-        <View style={styles.errorWrapper}>
-          <Text style={styles.errorMessage}>Couldn't retieve the listings.</Text>
-          <Button title="Retry" onPress={loadListings} />
-        </View>
-      )}
-      <ActivityIndicator isVisible={loading} />
-      <FlatList
-        data={listings}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item, item: { id, images, title, price } }) => (
-          <View style={styles.cardContainer}>
-            <Card
-              key={id}
-              imageUrl={images[0].url}
-              thumbnailUrl={images[0].thumbnailUrl}
-              title={title}
-              subTitle={`£${price.toFixed(2)}`}
-              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            />
+    <>
+      <ActivityIndicator visible={loading} />
+      <Screen>
+        {error && (
+          <View style={styles.errorWrapper}>
+            <Text style={styles.errorMessage}>Couldn't retieve the listings.</Text>
+            <Button title="Retry" onPress={loadListings} />
           </View>
         )}
-      />
-    </Screen>
+        <FlatList
+          data={listings}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item, item: { id, images, title, price } }) => (
+            <View style={styles.cardContainer}>
+              <Card
+                key={id}
+                imageUrl={images[0].url}
+                thumbnailUrl={images[0].thumbnailUrl}
+                title={title}
+                subTitle={`£${price.toFixed(2)}`}
+                onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+              />
+            </View>
+          )}
+        />
+      </Screen>
+    </>
   )
 }
 
