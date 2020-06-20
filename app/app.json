@@ -8,8 +8,8 @@
     "icon": "./app/assets/images/logo.png",
     "splash": {
       "image": "./app/assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#f1f1f1"
+      "resizeMode": "cover",
+      "backgroundColor": "#2bcbba"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
