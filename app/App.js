@@ -31,7 +31,7 @@ export default App = () => {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
-      <NavigationContainer theme={NavigationTheme}>
+      <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
         {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
