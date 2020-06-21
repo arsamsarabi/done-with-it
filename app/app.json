@@ -2,11 +2,7 @@
   "expo": {
     "name": "DoneWithIt",
     "slug": "donewithit",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/images/logo.png",
@@ -18,13 +14,14 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "description": "An imaginary React native market place",
-    "githubUrl": "https://github.com/arsamsarabi/done-with-it"
+    "githubUrl": "https://github.com/arsamsarabi/done-with-it",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }

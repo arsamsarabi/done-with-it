@@ -8,6 +8,7 @@ import NavigationTheme from './app/navigation/navigationTheme'
 import OfflineNotice from './app/components/OfflineNotice'
 import AuthContext from './app/auth/context'
 import authStorage from './app/auth/storage'
+import { navigationRef } from './app/navigation/rootNavigation'
 
 export default App = () => {
   const [user, setUser] = useState()
