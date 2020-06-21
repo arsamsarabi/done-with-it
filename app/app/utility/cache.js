@@ -1,6 +1,8 @@
 import { AsyncStorage } from 'react-native'
 import dayjs from 'dayjs'
 
+import logger from './logger'
+
 const PREFIX = 'cashe'
 
 const EXPIRY_IN_MINUTES = 5
@@ -13,7 +15,7 @@ const store = async (key, value) => {
     }
     await AsyncStorage.setItem(`${PREFIX}-${key}`, JSON.stringify(item))
   } catch (error) {
-    console.error(error)
+    logger.log(error)
   }
 }
 
@@ -37,7 +39,7 @@ const get = async (key) => {
 
     return item.value
   } catch (error) {
-    console.error(error)
+    logger.log(error)
   }
 }
 

@@ -4,6 +4,7 @@ import { StyleSheet, Image, TouchableWithoutFeedback, View, Alert } from 'react-
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import palette from '../../config/palette'
+import logger from '../../utility/logger'
 
 export const ImageInput = ({ imageUri, onChangeImage }) => {
   const requestPermission = async () => {
@@ -27,7 +28,7 @@ export const ImageInput = ({ imageUri, onChangeImage }) => {
         onChangeImage(uri)
       }
     } catch (err) {
-      console.error(err)
+      logger.log(err)
     }
   }
 

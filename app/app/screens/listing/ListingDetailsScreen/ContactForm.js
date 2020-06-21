@@ -6,6 +6,7 @@ import { Notifications } from 'expo'
 
 import messagesApi from '../../../api/messages'
 import { FormField, SubmitButton, Form } from '../../../components'
+import logger from '../../../utility/logger'
 
 const propTypes = {
   listingId: PropTypes.number.isRequired,
@@ -24,7 +25,7 @@ const ContactForm = ({ listingId }) => {
     const result = await messagesApi.send(message, listingId)
 
     if (!result.ok) {
-      console.error('Error sending message', result)
+      logger.log('Error sending message', result)
       return Alert.alert('Error', 'Could not send the message. Please try again.')
     }
 
