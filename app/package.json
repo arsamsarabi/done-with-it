@@ -9,6 +9,7 @@
     "optimizeAssets": "npx expo-optimize"
   },
   "dependencies": {
+    "@bugsnag/expo": "^7.1.1",
     "@react-native-community/hooks": "^2.5.1",
     "@react-native-community/masked-view": "0.1.6",
     "@react-native-community/netinfo": "5.5.1",

@@ -28,6 +28,19 @@
     "githubUrl": "https://github.com/arsamsarabi/done-with-it",
     "notification": {
       "iosDisplayInForeground": true
+    },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "1d174fb56d06c828ac842324300a3d33"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
     }
   }
 }
